@@ -12,10 +12,10 @@
 	</div>
 		<img id="cat-img" src="" alt="cute cat">
 	</div>
-	<script>
+<script>
 	var model1 = {
-  currentCat: null,
-  cats: [{
+      currentCat: null,
+      cats: [{
       clickCount: 0,
       name: 'Tabby',
       imgSrc: 'http://www.rd.com/wp-content/uploads/sites/2/2016/04/01-cat-wants-to-tell-you-laptop.jpg',
@@ -38,13 +38,13 @@
     },
 
   ]
-};
+  };
 
 
-var model2 = {
-  getCurrentCat: function() {
+  var model2 = {
+    getCurrentCat: function() {
     return model1.currentCat;
-  },
+    },
 
   getCats: function() {
     return model1.cats;
@@ -82,7 +82,7 @@ var model3 = {
     }
   }
 };
-this.catElem = document.getElementById('cat');
+        this.catElem = document.getElementById('cat');
         this.catNameElem = document.getElementById('cat-name');
         this.catImageElem = document.getElementById('cat-img');
         this.countElem = document.getElementById('cat-count');
@@ -96,7 +96,6 @@ function display(cat1){
         this.catNameElem.textContent = "Infant";
         else
         this.catNameElem.textContent = "Teen";
-        
         this.catImageElem.src = cat1.imgSrc;      
  }
  
@@ -113,8 +112,7 @@ display();
 myFunction();
 
 
-
-	</script>
+</script>
 </body>
 </html>
 
