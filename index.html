@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cat Clicker</title>
+	<link rel="stylesheet" type="text/css" href="index.css"></link>
+</head>
+<body>
+	<ol id="myList"></ol>
+	<div id="cat">
+	<h2 id="cat-name"></h2>
+	<div id="cat-count">
+	</div>
+		<img id="cat-img" src="" alt="cute cat">
+	</div>
+	<script>
+	var model1 = {
+  currentCat: null,
+  cats: [{
+      clickCount: 0,
+      name: 'Tabby',
+      imgSrc: 'http://www.rd.com/wp-content/uploads/sites/2/2016/04/01-cat-wants-to-tell-you-laptop.jpg',
+
+    }, {
+      clickCount: 0,
+      name: 'Tiger',
+      imgSrc: 'https://www.petfinder.com/wp-content/uploads/2012/11/101438745-cat-conjunctivitis-causes.jpg',
+
+    }, {
+      clickCount: 0,
+      name: 'Tossy',
+      imgSrc: 'https://www.funnypica.com/wp-content/uploads/2015/05/TOP-30-Cute-Cats-Cute-Cat-30.jpg',
+
+    }, {
+      clickCount: 0,
+      name: 'Tussel',
+      imgSrc: 'https://pbs.twimg.com/profile_images/602729491916435458/hSu0UjMC.jpg',
+
+    },
+
+  ]
+};
+
+
+var model2 = {
+  getCurrentCat: function() {
+    return model1.currentCat;
+  },
+
+  getCats: function() {
+    return model1.cats;
+  },
+  setCurrentCat: function(cat) {
+    model1.currentCat = cat;
+  },
+   incrementCounter: function() {
+        model.currentCat.clickCount++;
+        catView.render();
+    }
+}
+
+var model3 = {
+  init: function() {
+    this.catListElem = document.getElementById('myList');
+    this.render();
+  },
+
+  render: function() {
+    var cats = model2.getCats();
+    this.catListElem.innerHTML = '';
+    for (i = 0; i < cats.length; i++) {
+      var cat = cats[i];
+      var x = document.createElement('LI');
+      x.textContent = cat.name;
+      x.addEventListener('click', (function(catCopy) {
+        return function() {
+          model2.setCurrentCat(catCopy);
+          display(catCopy);
+          increment(catCopy);
+         };
+      })(cat));
+      this.catListElem.appendChild(x);
+    }
+  }
+};
+this.catElem = document.getElementById('cat');
+        this.catNameElem = document.getElementById('cat-name');
+        this.catImageElem = document.getElementById('cat-img');
+        this.countElem = document.getElementById('cat-count');
+              
+function display(cat1){           
+        var currentCat = model2.getCurrentCat();
+        this.countElem.textContent = cat1.clickCount;
+        if(this.countElem.textContent==0)
+        this.catNameElem.textContent = "Newborn";
+        else if(this.countElem.textContent>0 && this.countElem.textContent<10)
+        this.catNameElem.textContent = "Infant";
+        else
+        this.catNameElem.textContent = "Teen";
+        
+        this.catImageElem.src = cat1.imgSrc;      
+ }
+ 
+ 
+function increment(cat2) {
+this.catImageElem.addEventListener('click',function(){
+cat2.clickCount++;
+  display();
+});
+}
+
+model3.init();
+display();
+myFunction();
+
+
+
+	</script>
+</body>
+</html>
+
+
